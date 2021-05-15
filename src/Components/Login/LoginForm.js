@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Input from '../Form/Input'
-import Button from '../Form/Button'
+import Input from '../Forms/Input'
+import Button from '../Forms/Button'
 import useForm from '../../Hooks/useForm'
 import { TOKEN_POST } from '../../api'
 
