@@ -23,7 +23,7 @@ const UserPhotoPost = () => {
 
     useEffect(() => {
        if(data) navigate('/conta')
-    }, [data,navigate])
+    }, [data, navigate])
     
     
     function handleSubmit(event) {
@@ -31,8 +31,8 @@ const UserPhotoPost = () => {
         const formData = new FormData()
         formData.append('img', img.raw)
         formData.append('nome', nome.value)
-        formData.append('peso', nome.value)
-        formData.append('idade', nome.value)
+        formData.append('peso', peso.value)
+        formData.append('idade', idade.value)
 
         const token = window.localStorage.getItem('token')
         const { url, options } = PHOTO_POST(formData, token)
@@ -50,7 +50,7 @@ const UserPhotoPost = () => {
         <section className={`${styles.photoPost} animeLeft`}>
             <form onSubmit={handleSubmit}>
                 <Input label="Nome" type="text" name="nome" {...nome} />
-                <Input label="Peso" type="number" name="nome" {...personalbar} />
+                <Input label="Peso" type="number" name="nome" {...peso} />
                 <Input label="Idade" type="number" name="nome" {...idade} />
                 <input 
                     className={styles.file}
