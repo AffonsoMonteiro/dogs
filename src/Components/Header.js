@@ -16,7 +16,6 @@ const Header = () => {
         {data ? (
           <Link className={styles.login} to="/conta">
             {data.nome}
-            
           </Link>
         ) : (
           <Link className={styles.login} to="/login">
@@ -25,7 +24,7 @@ const Header = () => {
         )}
       </nav>
     </header>
-  )
-}
+  );
+};
 
 export default Header

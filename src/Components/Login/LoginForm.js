@@ -1,11 +1,10 @@
-import React, {useContext} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Input from '../Forms/Input'
 import Button from '../Forms/Button'
 import useForm from '../../Hooks/useForm'
 import { UserContext } from '../../UserContext'
 import Error from '../Helper/Error'
-
 import styles from './LoginForm.module.css'
 import stylesBtn from '../Forms/Button.module.css'
 
@@ -13,10 +12,10 @@ const LoginForm = () => {
   const username = useForm()
   const password = useForm()
 
-  const { userLogin, error, loading } = useContext(UserContext);
+  const { userLogin, error, loading } = React.useContext(UserContext)
 
   async function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
 
     if (username.validate() && password.validate()) {
       userLogin(username.value, password.value)
@@ -36,15 +35,18 @@ const LoginForm = () => {
         )}
         <Error error={error} />
       </form>
-      <Link className={styles.lost} to="/login/perdeu">Esqueceu a Senha?</Link>
-      <div className={styles.register}>
+      <Link className={styles.perdeu} to="/login/perdeu">
+        Perdeu a Senha?
+      </Link>
+      <div className={styles.cadastro}>
         <h2 className={styles.subtitle}>Cadastre-se</h2>
-        <p>Ainda não possui conta? Cadastre-se no site</p>
-        <Link className={stylesBtn.button} to="/login/criar">Cadastro</Link>
+        <p>Ainda não possui conta? Cadastre-se no site.</p>
+        <Link className={stylesBtn.button} to="/login/criar">
+          Cadastro
+        </Link>
       </div>
-      
     </section>
-  );
-};
+  )
+}
 
-export default LoginForm
+export default LoginForm;
